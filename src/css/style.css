@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+
+:root {
+  --right-bg-color: rgba(51, 107, 135, 0.7);
+  --left-bg-color: rgba(118, 54, 38, 0.6);
+  --left-border-btn-hover: rgba(118, 54, 38);
+  --right-border-btn-hover: rgba(51, 107, 135);
+
+  --active-hover-width: 75%;
+  --other-hover-width: 25%;
+}
+
+.header {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  background: #9999;
+}
+.split {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+}
+.split-left {
+  background: url("../images/pes-2022.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  left: 0;
+}
+.slide-left .split-left {
+  width: var(--active-hover-width);
+}
+.slide-left .split-right {
+  width: var(--other-hover-width);
+}
+
+.split-left::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: var(--left-bg-color);
+}
+.split-right {
+  background: url("../images/fifa22.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  right: 0;
+}
+
+.slide-right .split-right {
+  width: var(--active-hover-width);
+}
+.slide-right .split-left {
+  width: var(--other-hover-width);
+}
+.split-right::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: var(--right-bg-color);
+}
+
+.split-content {
+  position: absolute;
+  text-align: text-center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+.split-content h1 {
+  color: #ddd;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.split-content .btn {
+  border-color: #ddd;
+  color: #ddd;
+  text-transform: uppercase;
+}
+
+.split-left .split-content .btn:hover {
+  color: var(--right-border-btn-hover);
+  border-color: var(--right-border-btn-hover);
+}
+.split-right .split-content .btn:hover {
+  color: var(--left-border-btn-hover);
+  border-color: var(--left-border-btn-hover);
+}
+
+.split-right,
+.split-left,
+.split-right::before,
+.split-left::before {
+  transition: all 0.5s ease-in-out;
+}
